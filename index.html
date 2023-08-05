@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=max-width, initial-scale=1" />
+        <title>Manhattan, The Diplomatic Center</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
+    <style>
+
+		@import url('https://fonts.googleapis.com/css2?family=Concert+One&display=swap');
+
+		@font-face {
+			font-family: 'Crimson Pro';
+			font-style: normal;
+			font-weight: 200 900;
+			font-display: swap;
+			src: url(https://fonts.gstatic.com/s/crimsonpro/v21/q5uDsoa5M_tv7IihmnkabARboYE.woff2) format('woff2');
+			unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+		}
+
+		@font-face {
+			font-family: 'Adelle Sans';
+			font-style: normal;
+			font-weight: 200 900;
+			font-display: swap;
+			src: url(https://fonts.gstatic.com/s/crimsonpro/v21/q5uDsoa5M_tv7IihmnkabARboYE.woff2) format('woff2');
+			unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+		}
+    	#scrolly {
+			position: relative;
+			padding: 1rem;
+		}
+
+    	.scrolly-overlay {
+			position: relative;
+			padding: 0;
+			max-width: 35rem;
+			margin: 0 auto;
+		}
+
+    	.sticky-thing {
+			position: -webkit-sticky;
+			position: sticky;
+			left: 0;
+			width: 100%;
+			margin: 0;
+			z-index: 0;
+			top: 0;
+			height: 100vh;
+			/* Center everything inside */
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			justify-content: center;
+    	}
+
+      	.step {
+			margin: 0 auto 2rem auto;
+			margin-bottom: 25rem;
+			background-color: #eee;
+			background-color: #fff;
+			color: black;
+		}
+
+      	.step p {
+			text-align: left;
+			padding: 1rem;
+			font-size: 1.25rem;
+		}
+
+		.hidden { visibility: hidden; }
+
+      	/* When it's less than 700 pixels wide, do normal scrollytelling */
+      	@media only screen and (min-width: 700px) {
+		#scrolly.side-by-side {
+			display: flex;
+        }
+
+        #scrolly.side-by-side > div {
+			flex-basis: 0;
+			flex-grow: 1;
+			flex-shrink: 1;
+			padding: 0.75em;
+        }
+
+        #scrolly.side-by-side .scrolly-overlay {
+			margin-top: 70vh;
+			order: 0;
+			/* Change these to adjust sizing options */
+			min-width: 15rem;
+			max-width: 20rem;
+        }
+
+        #scrolly.side-by-side .sticky-thing {
+			order: 1;
+			flex-grow: 2;
+        }
+		}		
+
+        .body {
+            margin-top: 0;
+            padding-top: 0;
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 18px;
+        }
+
+
+        .intro {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+            opacity: 0.7;
+        }
+
+
+        .headline {
+            font-size: 2.8rem;
+            font-family: 'Concert One', sans-serif;
+            font-weight: bold;
+            color: #333;
+            text-align: left;
+            width: 100%;
+            margin-top: 20px; /* 追加 */
+        }
+
+        .subheadline {
+            font-family: 'Adelle Sans', sans-serif; 
+            font-size: 1.8rem;
+            font-weight: normal; 
+            color: #666; 
+            margin-bottom: 20px; 
+        }
+
+        .credit {
+            font-family: 'Arial', sans-serif; 
+            font-size: 0.9rem; 
+            font-weight: bold;
+            color: #444; 
+            margin-bottom: 5px;
+        }
+
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #e0eef7fc; 
+        }
+
+        .section {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #e0eef7fc;
+        }
+
+        .footer-basic {
+            padding: 40px 0;
+            background-color: #e0eef7fc;
+            color: #4b4c4d;
+        }
+
+        .footer-basic ul {
+            padding:0;
+            list-style:none;
+            text-align:center;
+            font-size:18px;
+            line-height:1.6;
+            margin-bottom:0;
+        }
+            
+        .footer-basic li {
+            padding:0 10px;
+        }
+            
+        .footer-basic ul a {
+            color:inherit;
+            text-decoration:none;
+            opacity:0.8;
+        }
+            
+        .footer-basic ul a:hover {
+            opacity:1;
+        }
+            
+        .footer-basic .social {
+            text-align:center;
+            padding-bottom:20px;
+            }
+            
+        .footer-basic .social > a {
+            font-size:24px;
+            width:40px;
+            height:40px;
+            line-height:40px;
+            display:inline-block;
+            text-align:center;
+            border-radius:50%;
+            border:1px solid #ccc;
+            margin:0 8px;
+            color:inherit;
+            opacity:0.75;
+        }
+            
+        .footer-basic .social > a:hover {
+            opacity:0.9;
+        }
+            
+        .footer-basic .copyright {
+            margin: top 10px;
+            text-align:center;
+            font-size:13px;
+            color:#aaa;
+            margin: bottom 0px;
+        } 
+
+    </style>
+	<script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/scrollama/3.0.4/scrollama.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.3.0/d3.min.js"></script>
+	
+  </head>
+
+  <body>
+    <div class="section" style="max-width: 900px; margin: 0 auto;">
+		
+		<div class="intro">
+			<h1 class="headline">Manhattan: The Diplomatic Center</h1>
+			<p class="credit super-font">Text, Maps and Photos by Shotaro Miyasaka | Aug 5, 2023 | <a href="https://github.com/sho-miyasaka/mapping-project" target="_blank"><u>Data Sources are Available in Github</u></a> | <a href="https://sho-miyasaka.github.io/">Back to Homepage</a></p>
+
+		</div>
+
+		
+
+		<div>           
+			<p>New York City is one of the most cosmopolitan cities in the world, attracting residents from all over the world. It is also home to the headquarters of the United Nations.</p>
+		</div>
+		<div>
+            <img src="images/nyc-view.jpg" alt="New York city">
+			<p class="credit">Photo by Shotaro Miyasaka</p>
+        </div>
+
+
+		
+
+
+		<section id="scrolly">
+			<div class="sticky-thing">
+				<h2 class="subheadline">A Cosmopolitan City Where Nations Meets</h2>
+				<div class="ai2html-container">
+				<!-- ai2html goes below this line -->
+
+				<!-- Generated by ai2html v0.113.0 - 2023-08-04 16:06 -->
+				<!-- ai file: NYC-consulate1.ai -->
+				<style media="screen,print">
+					#g-NYC-consulate1-box ,
+					#g-NYC-consulate1-box .g-artboard {
+						margin:0 auto;
+					}
+					#g-NYC-consulate1-box p {
+						margin:0;
+					}
+					#g-NYC-consulate1-box .g-aiAbs {
+						position:absolute;
+					}
+					#g-NYC-consulate1-box .g-aiImg {
+						position:absolute;
+						top:0;
+						display:block;
+						width:100% !important;
+					}
+					#g-NYC-consulate1-box .g-aiSymbol {
+						position: absolute;
+						box-sizing: border-box;
+					}
+					#g-NYC-consulate1-box .g-aiPointText p { white-space: nowrap; }
+					#g-NYC-consulate1-_1 {
+						position:relative;
+						overflow:hidden;
+					}
+
+				</style>
+
+				<div id="g-NYC-consulate1-box" class="ai2html">
+
+					<!-- Artboard: _1 -->
+					<div
+					id="g-NYC-consulate1-_1"
+					class="g-artboard"
+					style="max-width: 842px; max-height: 595px"
+					data-aspect-ratio="1.415"
+					data-min-width="0"
+					>
+						<div style="padding: 0 0 70.6887% 0;"></div>
+						<img
+						id="g-NYC-consulate1-_1-img"
+						class="g-NYC-consulate1-_1-img g-aiImg"
+						alt=""
+						src="NYC-consulate1-_1.jpg"
+						/>
+						<img
+						id="g-NYC-consulate1-_1-NYC1-img"
+						class="g-NYC-consulate1-_1-NYC1-img g-aiImg hidden"
+						alt=""
+						src="NYC-consulate1-_1-NYC1.svg"
+						/>
+						<img
+						id="g-NYC-consulate1-_1-manhattan-img"
+						class="g-NYC-consulate1-_1-manhattan-img g-aiImg hidden"
+						alt=""
+						src="NYC-consulate1-_1-manhattan.svg"
+						/>
+						<img
+						id="g-NYC-consulate1-_1-NYC2-img"
+						class="g-NYC-consulate1-_1-NYC2-img g-aiImg hidden"
+						alt=""
+						src="NYC-consulate1-_1-NYC2.svg"
+						/>
+						<img
+						id="g-NYC-consulate1-_1-label-img"
+						class="g-NYC-consulate1-_1-label-img g-aiImg hidden"
+						alt=""
+						src="NYC-consulate1-_1-label.svg"
+						/>
+						<img
+						id="g-NYC-consulate1-_1-cosulates-img"
+						class="g-NYC-consulate1-_1-cosulates-img g-aiImg hidden"
+						alt=""
+						src="NYC-consulate1-_1-cosulates.svg"
+						/>
+					</div>
+
+				</div>
+
+				<!-- End ai2html - 2023-08-04 16:06 -->
+
+				<!-- ai2html goes above this line -->
+
+				</div>
+			</div>
+
+			<div class="scrolly-overlay">
+				<div class="step" id="step-zero">
+					<div>
+						<img src="images/consulates1.jpg" alt="New York city">
+					</div>
+					<p>Strolling through the Midtown area near the United Nations headquater, we can easily spot numerous buildings proudly flying national flags, as well as traffic signs designated for diplomatic vehicles. Occasionally, diplomatic cars can be seen cruising the streets.</p>
+
+				</div>
+
+				<div class="step" id="step-one">
+					<div>
+						<img src="images/consulates2.jpg" alt="New York city">
+					</div>
+					<p>There are over 100 consulates general representing various countries in New York City. The city has one of the highest concentrations of foreign missions outside of national capitals.</p>
+
+				</div>
+				<div class="step" id="step-two">
+					<div>
+						<img src="images/consulates3.jpg" alt="New York city">
+					</div>
+					<p>Many nations establish consulates in major urban centers to protect their citizens, conduct public diplomacy, and issue visas. The number of consulates reflects the attractiveness of the city.
+					</p>
+				</div>
+				<div class="step" id="step-three">
+					<div>
+						<img src="images/consulates4.jpg" alt="New York city">
+					</div>
+					<p>Most of the consulates general in NYC are located in Manhattan, particularly in Midtown, near the United Nations headquarters. 
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<script>
+		
+			/* Scrollytelling code goes under here */
+
+			d3.selectAll('.g-aiImg').classed('hidden', true);
+			d3.select('#g-NYC-consulate1-_1-img').classed('hidden', false);
+
+			/* Step 1−３ code */
+
+			d3.select('#step-one').on('stepin', function (e) {
+			console.log('We have ARRIVED at step one');
+			d3.selectAll('.g-aiImg').classed('hidden', true);
+			d3.select('#g-NYC-consulate1-_1-img').classed('hidden', false);
+			d3.select('#g-NYC-consulate1-_1-NYC1-img').classed('hidden', false);
+			d3.select('#g-NYC-consulate1-_1-label-img').classed('hidden', false);
+			d3.select('#g-NYC-consulate1-_1-NYC2-img').classed('hidden', false);
+			});
+
+			d3.select('#step-two').on('stepin', function (e) {
+			console.log('We have ARRIVED at step two');
+			d3.selectAll('.g-aiImg').classed('hidden', true);
+			d3.select('#g-NYC-consulate1-_1-img').classed('hidden', false);
+			d3.select('#g-NYC-consulate1-_1-NYC1-img').classed('hidden', false);
+			d3.select('#g-NYC-consulate1-_1-label-img').classed('hidden', false);
+			d3.select('#g-NYC-consulate1-_1-NYC2-img').classed('hidden', false);
+			d3.select('#g-NYC-consulate1-_1-cosulates-img').classed('hidden', false);
+			});
+
+			d3.select('#step-three').on('stepin', function (e) {
+			console.log('We have ARRIVED at step three');
+			d3.selectAll('.g-aiImg').classed('hidden', true);
+			d3.select('#g-NYC-consulate1-_1-img').classed('hidden', false);
+			d3.select('#g-NYC-consulate1-_1-NYC1-img').classed('hidden', false);
+			d3.select('#g-NYC-consulate1-_1-manhattan-img').classed('hidden', false);
+			d3.select('#g-NYC-consulate1-_1-label-img').classed('hidden', false);
+			d3.select('#g-NYC-consulate1-_1-NYC2-img').classed('hidden', false);
+			d3.select('#g-NYC-consulate1-_1-cosulates-img').classed('hidden', false);
+
+			});
+		</script>
+
+	<script>
+		const scroller = scrollama();
+
+		scroller
+			.setup({
+				step: "#scrolly .scrolly-overlay .step",
+				offset: 0.75,
+				debug: false
+			})
+			.onStepEnter(function({ element, index, direction}) {
+				const event = new CustomEvent('stepin', { detail: { direction: direction } })
+				element.dispatchEvent(event);
+			})
+			.onStepExit(function({ element, index, direction }) {
+				const event = new CustomEvent('stepout', { detail: { direction: direction } })
+				element.dispatchEvent(event);
+			});
+
+		window.addEventListener("resize", scroller.resize);
+		</script>
+
+
+		<!-- ai2html resizer script -->
+
+		<script type="text/javascript">
+		(function() {
+			// only want one resizer on the page
+			if (document.documentElement.className.indexOf("g-resizer-v3-init") > -1) return;
+			document.documentElement.className += " g-resizer-v3-init";
+			// require IE9+
+			if (!("querySelector" in document)) return;
+			function resizer() {
+				var elements = Array.prototype.slice.call(document.querySelectorAll(".g-artboard[data-min-width]")),
+					widthById = {};
+				elements.forEach(function(el) {
+					var parent = el.parentNode,
+						width = widthById[parent.id] || parent.getBoundingClientRect().width,
+						minwidth = el.getAttribute("data-min-width"),
+						maxwidth = el.getAttribute("data-max-width");
+					widthById[parent.id] = width;
+
+					if (+minwidth <= width && (+maxwidth >= width || maxwidth === null)) {
+						el.style.display = "block";
+					} else {
+						el.style.display = "none";
+					}
+				});
+				try {
+					if (window.parent && window.parent.$) {
+						window.parent.$("body").trigger("resizedcontent", [window]);
+					}
+					if (window.require) {
+						require(['foundation/main'], function() {
+							require(['shared/interactive/instances/app-communicator'], function(AppCommunicator) {
+								AppCommunicator.triggerResize();
+							});
+						});
+					}
+				} catch(e) { console.log(e); }
+			}
+
+			document.addEventListener('DOMContentLoaded', resizer);
+			// feel free to replace throttle with _.throttle, if available
+			window.addEventListener('resize', throttle(resizer, 200));        
+
+			function throttle(func, wait) {
+				// from underscore.js
+				var _now = Date.now || function() { return new Date().getTime(); },
+					context, args, result, timeout = null, previous = 0;
+				var later = function() {
+					previous = _now();
+					timeout = null;
+					result = func.apply(context, args);
+					if (!timeout) context = args = null;
+				};
+				return function() {
+					var now = _now(), remaining = wait - (now - previous);
+					context = this;
+					args = arguments;
+					if (remaining <= 0 || remaining > wait) {
+						if (timeout) {
+							clearTimeout(timeout);
+							timeout = null;
+						}
+						previous = now;
+						result = func.apply(context, args);
+						if (!timeout) context = args = null;
+					} else if (!timeout && options.trailing !== false) {
+						timeout = setTimeout(later, remaining);
+					}
+					return result;
+				};
+			}
+
+			
+		})();
+		</script>
+
+
+			
+
+
+			<div>           
+				<p>New York City is one of the most cosmopolitan cities in the world, attracting residents from all over the world. It is also home to the headquarters of the United Nations.</p>
+
+			</div>
+	
+		</div>
+
+		<div class="footer-basic" style="background:#e0eef7fc;">
+			<footer>
+				<div class="social"><a href="https://www.linkedin.com/in/sho-miyasaka/" target="_blank"><i class="icon ion-social-linkedin"></i></a><a href="https://github.com/sho-miyasaka" target="_blank"><i class="icon ion-social-github"></i></a><a href="https://www.facebook.com/shotaro.miyasaka" target="_blank"><i class="icon ion-social-facebook"></i></a></i></a></div>
+				<ul class="list-inline">
+						<li class="list-inline-item"><a href="#">Back to top</a></li>
+				</ul>
+			</footer>
+						
+		</div>
+  </body>
+</html>
