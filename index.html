@@ -58,7 +58,30 @@
 			justify-content: center;
     	}
 
-      	.step {
+		.step {
+			margin: 0 auto 2rem auto;
+			margin-bottom: 25rem;
+            width: 30rem;
+			background-color: #eee;
+			background-color: #fff;
+			color: black;
+		}
+
+        .step-left {
+			position: relative;
+			left: -15rem;
+            width: 30rem;
+			margin: 0 auto 2rem auto;
+			margin-bottom: 25rem;
+			background-color: #eee;
+			background-color: #fff;
+			color: black;
+		}
+
+		.step-right {
+			position: relative;
+			right: -15rem;
+            width: 30rem;
 			margin: 0 auto 2rem auto;
 			margin-bottom: 25rem;
 			background-color: #eee;
@@ -382,14 +405,14 @@
 					<p>There are over 100 consulates general representing various countries in New York City. The city has one of the highest concentrations of foreign missions outside of national capitals.</p>
 
 				</div>
-				<div class="step" id="step-two">
+				<div class="step-right" id="step-two">
 					<div>
 						<img src="images/consulates3.jpg" alt="New York city">
 					</div>
 					<p>Many nations have their consulates in major urban centers to protect their citizens, conduct public diplomacy, and issue visas. The number of consulates reflects the attractiveness of the city.
 					</p>
 				</div>
-				<div class="step" id="step-three">
+				<div class="step-right" id="step-three">
 					<div>
 						<img src="images/consulates4.jpg" alt="New York city">
 					</div>
@@ -656,12 +679,12 @@
 			<div class="scrolly-overlay">
 
 				<div class="step" id="step-0">
-					<p>What are the characteristics of the location of these consulates general? So zoom in on the map of Manhattan.
+					<p>So zoom in on the map of Manhattan.
 					</p>
 
 				</div>
 
-				<div class="step" id="step-1">
+				<div class="step-left" id="step-1">
 					<div>
 						<img src="images/UN.jpg" alt="New York city">
 					</div>
@@ -670,7 +693,7 @@
 
 				</div>
 
-				<div class="step" id="step-2">
+				<div class="step-left" id="step-2">
 
 					<p>Nearly 80% are located within two kilometers. </p>
 					<div>
@@ -678,7 +701,7 @@
 					</div>
 
 				</div>
-				<div class="step" id="step-3">
+				<div class="step-left" id="step-3">
 					<div>
 						<img src="images/consulates5.jpg" alt="New York city">
 					</div>
@@ -688,7 +711,7 @@
 					<p>Locations of consulates also reveals the influence of historical relations and immigration patterns with the United States.</p>
 				</div>
 
-				<div class="step" id="step-5">
+				<div class="step-left" id="step-5">
 					<div>
 						<img src="images/consulates6.jpg" alt="New York city">
 					</div>
@@ -696,28 +719,28 @@
 					</p>
 				</div>
 
-				<div class="step" id="step-6">
+				<div class="step-left" id="step-6">
 					<div>
 						<img src="images/consulates7.jpg" alt="New York city">
 					</div>
 					<p>The Upper East Side is home to a significant number of European consulates, including those of France and Italy, as the neighborhood has historically had a large European population. 
 					</p>
 				</div>
-				<div class="step" id="step-7">
+				<div class="step-left" id="step-7">
 					<div>
 						<img src="images/consulates8.jpg" alt="New York city">
 					</div>
 					<p> Asian powers such as India, Pakistan, and Indonesia also have consulates in this area.
 					</p>
 				</div>
-				<div class="step" id="step-8">
+				<div class="step-left" id="step-8">
 					<div>
 						<img src="images/consulates9.jpg" alt="New York city">
 					</div>
 					<p>Consulates on the Upper East Side typically occupy freestanding buildings, most of which are low-rise structures.
 					</p>
 				</div>
-				<div class="step" id="step-9">
+				<div class="step-left" id="step-9">
 					<div>
 						<img src="images/consulates10.jpg" alt="New York city">
 					</div>
@@ -733,7 +756,7 @@
 					</p>
 				</div>
 
-				<div class="step" id="step-11">
+				<div class="step-right" id="step-11">
 					<div>
 						<img src="images/consulates12.jpg" alt="New York city">
 					</div>
@@ -976,7 +999,7 @@
 
         scroller2
             .setup({
-                step: "#scrolly .scrolly-overlay .step",
+                step: "#scrolly .scrolly-overlay .step, #scrolly .scrolly-overlay .step-left, #scrolly .scrolly-overlay .step-right",
                 offset: 0.75,
                 debug: false
             })
