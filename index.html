@@ -122,6 +122,14 @@
             margin: 0 auto;
         }
 
+		.lede {
+			font-size: 1.3rem; 
+            font-weight: normal;
+            color: #444; 
+			text-align: left;
+            margin-bottom: 5px;
+		}
+
         img {
             display: block;
             width: 100%;
@@ -131,13 +139,13 @@
 
 
         .headline {
-            font-size: 2.8rem;
+            font-size: 3.5rem;
             font-family: 'Concert One', sans-serif;
             font-weight: bold;
             color: #333;
-            text-align: left;
+            text-align: center;
             width: 100%;
-            margin-top: 20px; /* 追加 */
+            margin-top: 20px;
         }
 
         .subheadline {
@@ -150,9 +158,19 @@
 
         .credit {
             font-family: 'Arial', sans-serif; 
-            font-size: 0.9rem; 
+            font-size: 1.2rem; 
             font-weight: bold;
             color: #444; 
+			text-align: center;
+            margin-bottom: 5px;
+        }
+
+		.caption {
+            font-family: 'Arial', sans-serif; 
+            font-size: 0.9rem; 
+            font-weight: bold;
+            color: #444;
+			text-align: left;
             margin-bottom: 5px;
         }
 
@@ -235,18 +253,18 @@
 		
 		<div class="intro">
 			<h1 class="headline">Manhattan: The Diplomatic Center</h1>
-			<p class="credit super-font">Text, Maps and Photos by Shotaro Miyasaka | Aug 5, 2023 | <a href="https://github.com/sho-miyasaka/mapping-project" target="_blank"><u>Data Sources are Available in Github</u></a> | <a href="https://sho-miyasaka.github.io/">Back to Homepage</a></p>
+			<p class="credit super-font">Text, Maps and Photos by Shotaro Miyasaka | Aug 6, 2023 | <a href="https://github.com/sho-miyasaka/mapping-project" target="_blank"><u>Github</u></a> | <a href="https://sho-miyasaka.github.io/">Back to Homepage</a></p>
 
 		</div>
 
 		
 
-		<div>           
+		<div class="lede">           
 			<p>New York City is one of the most cosmopolitan cities in the world, attracting residents from all over the world. It is also home to the headquarters of the United Nations.</p>
 		</div>
 		<div>
             <img src="images/nyc-view.jpg" alt="New York city">
-			<p class="credit">Photo by Shotaro Miyasaka</p>
+			<p class="caption">There are over 100 consulates general in Manhattan, New York.</p>
         </div>
 
 
@@ -435,7 +453,7 @@
 
 		scroller
 			.setup({
-				step: "#scrolly .scrolly-overlay .step",
+				step: "#scrolly .scrolly-overlay .step .left",
 				offset: 0.75,
 				debug: false
 			})
@@ -718,14 +736,14 @@
 					<div>
 						<img src="images/consulates12.jpg" alt="New York city">
 					</div>
-					<p>China's are near Hudson Yards. The establishment of diplomatic relations between China and the United States in 1979 prompted them to secure a location, and this particular area was apparently available at the time.
+					<p>China's is located on 42nd Street near the Hudson River. China built on this site after the establishment of diplomatic relations between China and the U.S. in 1979, later than most other countries. The land would have been available at that time.
 					</p>
 				</div>
 				<div class="step" id="step-12">
 					<div>
-						<img src="images/consulates4.jpg" alt="New York city">
+						<img src="images/message.jpg" alt="New York city">
 					</div>
-					<p>The prevalence of Chinese residents in New York City and its surrounding areas, coupled with the close economic ties between China and New York, underscores the unique positioning of China's consulates. In a city as huge as New York, the construction of substantial new buildings became necessary for their diplomatic presence.
+					<p>We sometimes see political messages near our diplomatic missions abroad. This big cosmopolitan city have something to do with international affairs either.
 					</p>
 				</div>
 
@@ -1051,13 +1069,10 @@
 		</script>
 
 
-			
-
-
-			<div>           
-				<p>New York City is one of the most cosmopolitan cities in the world, attracting residents from all over the world. It is also home to the headquarters of the United Nations.</p>
-
+			<div>
+				<img src="images/nyc-nightview.jpg" alt="New York city">
 			</div>
+
 	
 		</div>
 
